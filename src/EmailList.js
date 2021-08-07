@@ -47,8 +47,8 @@ function EmailList() {
 			</div>
 
 			<div className="emailList__sections">
-				<Section Icon={SettingsIcon} title="primary" color="red" selected />
-				<Section Icon={PeopleIcon} title="primary" color="red" />
+				<Section Icon={SettingsIcon} title="Primary" color="red" selected />
+				<Section Icon={PeopleIcon} title="Social" color="#1A73eB" />
 				<Section Icon={LocalOfferIcon} title="Promotions" color="green" />
 			</div>
 		</Div>

@@ -5,7 +5,7 @@ function SidebarOption({ Icon, title, number, selected }) {
 	return (
 		<Div className={` ${selected && "sidebarOption--active"}`}>
 			<Icon />
-			<h3> {title} </h3>
+			<h3> {title} &nbsp; </h3>
 			<p> {number} </p>
 		</Div>
 	);
