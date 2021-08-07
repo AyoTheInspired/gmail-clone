@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
-import { IconButton } from "@material-ui/core";
+import { IconButton, Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import AppsIcon from "@material-ui/icons/Apps";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 function Header() {
 	return (
@@ -22,8 +24,17 @@ function Header() {
 				<input type="text" placeholder="Search mail" />
 				<ArrowDropDownIcon className="header__inputCaret" />
 			</div>
-			<div className="header__rightt"></div>
-			THE HEADER
+			<div className="header__right">
+				<IconButton>
+					<AppsIcon />
+				</IconButton>
+
+				<IconButton>
+					<NotificationsIcon />
+				</IconButton>
+
+				<Avatar />
+			</div>
 		</Div>
 	);
 }
@@ -53,5 +64,24 @@ const Div = styled.div`
 		flex: 0.7;
 		background-color: whitesmoke;
 		padding: 10px;
+		border-radius: 5px;
+	}
+
+	.header__middle > .MuiSvgIcon-root {
+		color: grey;
+	}
+
+	.header__middle > input {
+		border: none;
+		width: 100%;
+		padding: 10px;
+		outline-width: 0;
+		font-size: medium;
+		background-color: transparent;
+	}
+
+	.header__right {
+		display: flex;
+		padding-right: 20px;
 	}
 `;
