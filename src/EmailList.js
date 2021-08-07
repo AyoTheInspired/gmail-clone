@@ -47,7 +47,7 @@ function EmailList() {
 			</div>
 
 			<div className="emailList__sections">
-				<Section Icon={SettingsIcon} title="Primary" color="red" selected />
+				<Section Icon={InboxIcon} title="Primary" color="red" selected />
 				<Section Icon={PeopleIcon} title="Social" color="#1A73eB" />
 				<Section Icon={LocalOfferIcon} title="Promotions" color="green" />
 			</div>
@@ -74,5 +74,14 @@ const Div = styled.div`
 		background-color: white;
 		z-index: 999;
 		padding-right: 10px;
+	}
+
+	.emailList__sections {
+		position: sticky;
+		top: 0;
+		display: flex;
+		background-color: #fff;
+		border-bottom: 1px solid whitesmoke;
+		z-index: 999;
 	}
 `;

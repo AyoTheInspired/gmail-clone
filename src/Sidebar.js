@@ -56,6 +56,10 @@ function Sidebar() {
 export default Sidebar;
 
 const Div = styled.div`
+	flex: 0.3;
+	max-width: 300px;
+	padding-right: 20px;
+
 	.sidebar__compose {
 		margin-top: 15px !important;
 		margin-left: 10px !important;
