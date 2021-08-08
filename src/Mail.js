@@ -1,7 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { Checkbox, Button, IconButton } from "@material-ui/core";
-import { ArrowBack, Error, MoveToInbox } from "@material-ui/icons";
+import {
+	ArrowBack,
+	Delete,
+	Error,
+	Email,
+	MoveToInbox,
+	WatchLater,
+	CheckCircle,
+	LabelImportant,
+	MoreVert,
+} from "@material-ui/icons";
 
 function Mail() {
 	return (
@@ -12,20 +22,37 @@ function Mail() {
 					<IconButton>
 						<ArrowBack />
 					</IconButton>
+
 					<IconButton>
 						<MoveToInbox />
 					</IconButton>
+
 					<IconButton>
 						<Error />
 					</IconButton>
+
 					<IconButton>
-						<ArrowBack />
+						<Delete />
 					</IconButton>
+
 					<IconButton>
-						<ArrowBack />
+						<Email />
 					</IconButton>
+
 					<IconButton>
-						<ArrowBack />
+						<WatchLater />
+					</IconButton>
+
+					<IconButton>
+						<CheckCircle />
+					</IconButton>
+
+					<IconButton>
+						<LabelImportant />
+					</IconButton>
+
+					<IconButton>
+						<MoreVert />
 					</IconButton>
 				</div>
 				<div className="mail__toolsRight"></div>
