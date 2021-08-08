@@ -1,9 +1,17 @@
+import React, { createRef } from "react";
 import { Close } from "@material-ui/icons";
-import React from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
+import { useForm } from "react-hook-form";
 
 function SendMail() {
+	const { register, handleSubmit, watch, errors } = useForm();
+
+	const onSubmit = (data) => {
+		console.log(data);
+		console.log("heyy");
+	};
+
 	return (
 		<Div>
 			<div className="sendMail__header">
@@ -11,10 +19,22 @@ function SendMail() {
 				<Close classname="sendMail__close" />
 			</div>
 
-			<form>
-				<input placeholder="To" type="text" />
-				<input placeholder="Subject" type="text" />
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
+					name="to"
+					placeholder="To"
+					type="text"
+					// ref={register("to", { required: true })}
+				/>
+				<input
+					// ref={register("subject", { required: true })}
+					name="subject"
+					placeholder="Subject"
+					type="text"
+				/>
+				<input
+					ref={React.createRef(register("message", { required: true }))}
+					name="message"
 					placeholder="Your message here"
 					className="sendMail__message"
 					type="text"
@@ -42,7 +62,7 @@ const Div = styled.div`
 	right: 50px;
 	background-color: #404040;
 	width: 40%;
-	height: 50%;
+	height: 45%;
 	max-width: 500px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;

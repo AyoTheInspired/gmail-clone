@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Checkbox, Button, IconButton } from "@material-ui/core";
+import { Checkbox, IconButton } from "@material-ui/core";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RedoIcon from "@material-ui/icons/Redo";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardHideIcon from "@material-ui/icons/KeyboardHide";
