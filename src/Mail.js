@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { Checkbox, Button, IconButton } from "@material-ui/core";
 import {
@@ -11,15 +12,20 @@ import {
 	CheckCircle,
 	LabelImportant,
 	MoreVert,
+	UnfoldMore,
+	Print,
+	ExitToApp,
 } from "@material-ui/icons";
 
 function Mail() {
+	const history = useHistory();
+
 	return (
 		<Div>
 			the mail component
 			<div className="mail__tools">
 				<div className="mail__toolsLeft">
-					<IconButton>
+					<IconButton onClick={() => history.push("/")}>
 						<ArrowBack />
 					</IconButton>
 
@@ -55,7 +61,19 @@ function Mail() {
 						<MoreVert />
 					</IconButton>
 				</div>
-				<div className="mail__toolsRight"></div>
+				<div className="mail__toolsRight">
+					<IconButton>
+						<UnfoldMore />
+					</IconButton>
+
+					<IconButton>
+						<Print />
+					</IconButton>
+
+					<IconButton>
+						<ExitToApp />
+					</IconButton>
+				</div>
 			</div>
 		</Div>
 	);
@@ -63,4 +81,17 @@ function Mail() {
 
 export default Mail;
 
-const Div = styled.div``;
+const Div = styled.div`
+	flex: 1;
+	background-color: whitesmoke;
+
+	.mail__tools {
+		display: flex;
+		justify-content: space-between;
+		background-color: #fff;
+	}
+
+	.mail__toolsLeft {
+		display: flex;
+	}
+`;
