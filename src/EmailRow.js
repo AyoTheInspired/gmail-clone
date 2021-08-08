@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { Checkbox, IconButton } from "@material-ui/core";
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
 import LabelImportantOutlinedIcon from "@material-ui/icons/LabelImportantOutlined";
+import { db } from "./firebase";
 
 function EmailRow({ title, subject, description, time, id }) {
 	const history = useHistory();
@@ -21,8 +22,8 @@ function EmailRow({ title, subject, description, time, id }) {
 			<h3 className="emailRow__title">{title}</h3>
 			<div className="emailRow__message">
 				<h4>
-					{subject}{" "}
-					<span className="emailRow__description"> -{description}</span>
+					{subject}
+					<span className="emailRow__description"> &#8212; {description} </span>
 				</h4>
 			</div>
 
