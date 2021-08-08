@@ -1,44 +1,74 @@
-import React, { createRef } from "react";
 import { Close } from "@material-ui/icons";
+import React from "react";
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { closeSendMessage } from "./features/mailSlice";
+import { db } from "./firebase";
+import firebase from "firebase";
 
 function SendMail() {
-	const { register, handleSubmit, watch, errors } = useForm();
+	const dispatch = useDispatch();
 
-	const onSubmit = (data) => {
-		console.log(data);
-		console.log("heyy");
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors },
+	} = useForm();
+
+	const onSubmit = (formData) => {
+		console.log(formData);
+		db.collection("emails").add({
+			to: formData.to,
+			subject: formData.subject,
+			message: formData.message,
+			timestamp: firebase.firestore.fieldValue.serverTimestamp(),
+		});
+
+		dispatch(closeSendMessage());
 	};
 
 	return (
 		<Div>
 			<div className="sendMail__header">
 				<h3>New Message</h3>
-				<Close classname="sendMail__close" />
+				<Close
+					className="sendMail__close"
+					onClick={() => dispatch(closeSendMessage())}
+				/>
 			</div>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
-					name="to"
+					// name="to"
 					placeholder="To"
-					type="text"
-					// ref={register("to", { required: true })}
+					type="email"
+					{...register("to", { required: true })}
 				/>
+				{errors.to && <p className="sendMail__error">Reciever is required!</p>}
+
 				<input
-					// ref={register("subject", { required: true })}
-					name="subject"
+					{...register("subject", { required: true })}
+					// name="subject"
 					placeholder="Subject"
 					type="text"
 				/>
+				{errors.subject && (
+					<p className="sendMail__error">Subject is required!</p>
+				)}
+
 				<input
-					ref={React.createRef(register("message", { required: true }))}
-					name="message"
+					{...register("message", { required: true })}
+					// name="message"
 					placeholder="Your message here"
 					className="sendMail__message"
 					type="text"
 				/>
+				{errors.message && (
+					<p className="sendMail__error">Message is required!</p>
+				)}
 
 				<div className="sendMail__options">
 					<Button
@@ -90,7 +120,7 @@ const Div = styled.div`
 		margin: 15px !important;
 	}
 
-	.sendmail__close {
+	.sendMail__close {
 		cursor: pointer;
 	}
 
@@ -110,5 +140,16 @@ const Div = styled.div`
 
 	.sendMail__message {
 		flex: 1;
+	}
+
+	.sendMail__error {
+		background-color: #fff;
+		font-size: 12px;
+		font-weight: bold;
+		color: red;
+		border: none;
+		text-align: right;
+		padding: 2px;
+		transition: var(--sht-trans);
 	}
 `;

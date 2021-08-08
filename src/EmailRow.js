@@ -15,7 +15,7 @@ function EmailRow({ title, subject, description, time, id }) {
 					<StarBorderOutlinedIcon />
 				</IconButton>
 				<IconButton>
-					<LabelImportantOutlinedIcon />
+					<LabelImportantOutlinedIcon className="mail__important" />
 				</IconButton>
 			</div>
 			<h3 className="emailRow__title">{title}</h3>
@@ -81,5 +81,9 @@ const Div = styled.div`
 	.emailRow__description {
 		font-weight: 400;
 		color: gray;
+	}
+
+	.mail__important {
+		color: #e8ab02 !important;
 	}
 `;
