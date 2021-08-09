@@ -94,6 +94,11 @@ const Div = styled.div`
 		display: none;
 	}
 
+	.emailList {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
 	.emailList__settings {
 		position: sticky;
 		top: 0;
@@ -112,5 +117,9 @@ const Div = styled.div`
 		background-color: #fff;
 		border-bottom: 1px solid whitesmoke;
 		z-index: 999;
+	}
+
+	.emailList__list {
+		padding-bottom: 20%;
 	}
 `;
